@@ -1,4 +1,4 @@
-# [Diaries and Wikis of WoW](https://david-dhc.github.io/World-of-Warcraft/)
+# Diaries and Wikis of WoW
 
 ## Mounts
 [Draenor Dungeon]
