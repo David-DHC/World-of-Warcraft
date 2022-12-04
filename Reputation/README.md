@@ -38,7 +38,7 @@ I've done 100 exalted reputation achievement this summer. Here's my entire list.
     12.  Shattrath City - Lower City
     13.  Shattrath City - Sha'tari Skyguard
     14.  Shattrath City - Shattered Sun Offensive
-    15.  Shattrath City - The Aldor
+    15.  Shattrath City - The Scryers (Later switched to The Aldor)
     16.  Shattrath City - The Sha'tar
 3.  [Wrath of the Lich King](https://david-dhc.github.io/World-of-Warcraft/Reputation/WLK.html)
     1.  Argent Crusade
