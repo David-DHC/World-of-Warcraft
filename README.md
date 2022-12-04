@@ -10,12 +10,14 @@
 
 ## [Reputation](https://david-dhc.github.io/World-of-Warcraft/Reputation/)
 
-[Vanilla](https://david-dhc.github.io/World-of-Warcraft/Reputation/Vanilla.html)
+-   [Vanilla](https://david-dhc.github.io/World-of-Warcraft/Reputation/Vanilla.html)
 
-[The Burning Crusade](https://david-dhc.github.io/World-of-Warcraft/Reputation/TBC.html)
+-   [The Burning Crusade](https://david-dhc.github.io/World-of-Warcraft/Reputation/TBC.html)
 
-[Wrath of the Lich King](https://david-dhc.github.io/World-of-Warcraft/Reputation/WLK.html)
+-   [Wrath of the Lich King](https://david-dhc.github.io/World-of-Warcraft/Reputation/WLK.html)
 
-## [Special Events]()
+## [Special Events](https://david-dhc.github.io/World-of-Warcraft/Events/)
+
+-   
 
 ## [Diary](https://david-dhc.github.io/World-of-Warcraft/Diary.html)
