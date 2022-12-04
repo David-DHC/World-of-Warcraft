@@ -18,6 +18,7 @@
 
 ## [Special Events](https://david-dhc.github.io/World-of-Warcraft/Events/)
 
--   
+-   [Argent Tournament](https://david-dhc.github.io/World-of-Warcraft/Events/ArgentTournament.html)
+-   [Molten Front](https://david-dhc.github.io/World-of-Warcraft/Events/MoltenFront.html)
 
 ## [Diary](https://david-dhc.github.io/World-of-Warcraft/Diary.html)
