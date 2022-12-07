@@ -1,3 +1,7 @@
+# World of Warcraft Guides and Diaries
+
+---
+
 >   Updated at 2022-12-07
 
 ---
@@ -23,7 +27,9 @@
 ## [Special Events](https://david-dhc.github.io/World-of-Warcraft/Events/)
 
 -   [Argent Tournament](https://david-dhc.github.io/World-of-Warcraft/Events/ArgentTournament.html)
+
 -   [Argus Rare Elite](https://david-dhc.github.io/World-of-Warcraft/Events/Argus.html)
+
 -   [Molten Front](https://david-dhc.github.io/World-of-Warcraft/Events/MoltenFront.html)
 
 ## [Pets](https://david-dhc.github.io/World-of-Warcraft/Pets/)
