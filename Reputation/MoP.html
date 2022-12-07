@@ -1,0 +1,672 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+    --side-bar-bg-color: #d9ede5;
+	--control-text-color: #6B6B6B;
+	--active-file-bg-color: #ecf6f2;
+	--active-file-border-color: #6B6B6B;
+	--active-file-text-color: #202020;
+	--table-even-row-color:#f8fcfa;
+	--table-head-color:#d9ede5;
+	--deep-theme-color: #4eb289;
+	--code-block-bg-color: #0F111A;
+}
+
+/*serif*/
+/*monospace*/
+/*Chinese*/
+html{
+	font-size: 16px;
+}
+
+body {
+  font-family: 'Lexend','Helvetica','SourceCodePro','NotoSansSC';
+	font-weight: normal;
+	line-height: 1.5rem;
+	letter-spacing: 0;
+  margin: 0;
+}
+
+#write {
+	max-width: 900px;
+  padding: 30px 50px 20px;
+}
+
+#write p{
+	text-align:left;
+}
+
+#write pre.md-meta-block {
+	padding: 1rem;
+	font-size: 85%;
+	line-height: 1.45;
+	background-color: #f7f7f7;
+	border: 0;
+	border-radius: 3px;
+	color: #777777;
+	margin-top: 0 !important;
+}
+
+.md-image>.md-meta {
+  color: #777777;
+  font-size: 0.9rem;
+	font-family: 'Lexend';
+  padding: 4px 0;
+}
+
+
+@media print {
+  html,body {
+    font-size: 14px;
+  }
+  
+  .md-fences {
+    line-height: 1.2rem;
+  }
+
+
+  table,
+  pre {
+    page-break-inside: avoid;
+  }
+
+  pre {
+    word-wrap: break-word;
+  }
+  
+}
+@page {
+  size: A4; 
+  margin: 8mm 0mm;
+}
+
+/*toc*/
+.md-toc { 
+  margin-top:20px;
+  padding-bottom:20px;
+	color: var(--deep-theme-color);
+}
+
+a {
+	color: var(--deep-theme-color);
+	text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/*headers*/
+h1,h2,h3,h4,h5,h6 {
+	display: block;
+	font-weight:bold;
+}
+
+h1 {
+	font-size: 1.8em;
+  line-height: 110%;
+	margin-top: 0.67em;
+	margin-bottom: 0.67em;
+}
+
+h2 {
+	font-size: 1.5em;
+	margin-top: 0.83em;
+	margin-bottom: 0.83em;
+}
+
+h3 {
+	font-size: 1.17em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+h4 {
+	font-size: 1em;
+	margin-top: 1.33em;
+	margin-bottom: 1.33em;
+}
+
+h5 {
+	font-size: 1em;
+	margin-top: 1.33em;
+	margin-bottom: 1.33em;
+	color: #777777;
+}
+
+h6 {
+	font-size: 1em;
+	margin-top: 1.33em;
+	margin-bottom: 1.33em;
+	color: #adadad;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+	margin: 0.5rem 0;
+}
+
+/*table*/
+table {
+	border-collapse: collapse;
+	padding: 0;
+  word-break: initial;
+	width: 100%;
+}
+
+table tr:nth-child(even){
+    background-color: var(--table-even-row-color);
+}
+
+thead{
+	background-color: var(--table-head-color);
+}
+
+table th{
+	text-align: center;
+	padding:6px 13px;
+	border: 1px solid var(--table-head-color);
+}
+
+table td{
+	padding:6px 13px;
+	border: 1px solid var(--table-head-color);
+}
+table tr{
+	padding:6px 13px;
+	border: 1px solid var(--table-head-color);
+}
+
+/*blockquote*/
+blockquote {
+	border-left: 0.2rem solid var(--side-bar-bg-color);
+	color: #777777;
+	font-family: 'Lexend','NotoSansSC';
+	font-size: 0.9rem;
+	padding-left: 2rem;
+}
+
+
+/*list*/
+
+li p.first {
+  display: inline-block;
+}
+ul,
+ol {
+  padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+  margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+  margin-bottom: 0;
+}
+
+.md-task-list-item:hover > input:before,
+input[type='checkbox']:hover:before {
+	opacity: 1;
+	transition: 0.5s;
+	background-color: var(--side-bar-bg-color);
+}
+
+.task-list-item input::before {
+  content: "";
+  display: inline-block;
+  border-radius: 1.1rem;
+  vertical-align: middle;
+  border: 1.2px solid var(--deep-theme-color);
+  background-color: #ffffff;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-left: -0.13rem;
+  margin-right: 0.1rem;
+  margin-top: -0.67rem;  
+}
+
+.task-list-item input:checked::before {
+  padding-left: 0.125em;
+  content: '✔';
+  color:white;
+  background-color: var(--deep-theme-color);
+  font-size: 0.8rem;
+  line-height: 0.95rem;
+  margin-left: -0.13rem;
+  margin-right: 0.1rem;
+  margin-top: -0.67rem; 
+  transition: background-color 200ms ease-in-out;
+}
+
+.task-list-done {
+    text-decoration: line-through;
+    color: #adadad;
+}
+
+hr {
+	border-style: none;
+  border-top-style: solid;
+  border-color: #e7e7e7;
+  border-width: 1px;
+	margin: 2rem 0;
+}
+
+/*highlight*/
+#write mark {
+	background-color: #c7ffe8;
+	border-radius: 2px;
+	color: black;
+	padding: 0 4px;
+	margin: 0 2px;
+}
+
+/*inline code*/
+#write code,tt {
+	padding: 0.6px 4px;
+	border-radius: 2px;
+	background-color: #f1f1f1;
+	font-family: 'SourceCodePro',Consolas,Courier,'NotoSansSC';
+	font-size: 0.9rem;
+	color: var(--code-block-bg-color);
+	margin: 0 2px;
+}
+
+/*footnote*/
+#write .md-footnote {
+	color: #777777;
+	background-color: #f7f7f7;
+}
+
+/*source code mode*/
+.cm-s-typora-default .cm-header {
+	color:var(--code-block-bg-color);
+}
+.cm-s-typora-default .cm-link {
+	color:var(--deep-theme-color);
+
+}
+
+
+/*code block*/
+#write .md-fences {
+  font-size: 1rem;
+  margin: 0.2em 0;
+  padding: 0.5em;
+  border-radius: 3px;
+	font-size: 0.9em;
+  font-family: 'SourceCodePro',Consolas,Courier,'NotoSansSC';
+  background-color: var(--code-block-bg-color);
+  color: #A9B7C6;
+  border: none;
+	text-shadow: none;
+}
+
+.md-fences .code-tooltip {
+	background-color: var(--code-block-bg-color);
+}
+
+/*
+  Name:       material-ocean
+  Author:     Mattia Astorino (http://github.com/equinusocio)
+  Website:    https://material-theme.site/
+*/
+
+.cm-s-inner.CodeMirror {
+  background-color: #0F111A;
+  color: #8F93A2;
+}
+
+.cm-s-inner .CodeMirror-gutters {
+  background: #0F111A;
+  color: #464B5D;
+  border: none;
+}
+
+.cm-s-inner .CodeMirror-linenumber {color: #464B5D;}
+.cm-s-inner .CodeMirror-guttermarker { color: #FFEE80; }
+.cm-s-inner .CodeMirror-guttermarker-subtle { color: #D0D0D0; }
+
+/*
+.cm-s-inner .CodeMirror-cursor {
+  border-left: 1px solid #FFCC00;
+}
+.cm-s-inner.cm-fat-cursor .CodeMirror-cursor {
+  background-color: #FFCC00 !important;
+}
+.cm-s-inner .cm-animate-fat-cursor {
+  background-color: #FFCC00 !important;
+}
+*/
+
+.cm-s-inner .CodeMirror-cursor { border-left: 1px solid #A9B7C6; }
+.cm-s-inner div.CodeMirror-cursor { border-left: 1px solid #ffffff; }
+.cm-s-inner div.CodeMirror-selected {
+  background: rgba(113, 124, 180, 0.2);
+}
+
+.cm-s-inner.CodeMirror-focused div.CodeMirror-selected {
+  background: rgba(113, 124, 180, 0.2);
+}
+
+.cm-s-inner .CodeMirror-selected{ background: #214283 !important; }
+.cm-s-inner .CodeMirror-selectedtext { background: #214283 !important; }
+.cm-overlay.CodeMirror-selectedtext { background: #B5D6FC !important; }
+
+.cm-s-inner .CodeMirror-line::selection,
+.cm-s-inner .CodeMirror-line>span::selection,
+.cm-s-inner .CodeMirror-line>span>span::selection {
+  background: rgba(128, 203, 196, 0.2);
+}
+
+.cm-s-inner .CodeMirror-line::-moz-selection,
+.cm-s-inner .CodeMirror-line>span::-moz-selection,
+.cm-s-inner .CodeMirror-line>span>span::-moz-selection {
+  background: rgba(128, 203, 196, 0.2);
+}
+
+/* .cm-s-inner .CodeMirror-activeline-background {
+  background: rgba(0, 0, 0, 0.5);
+} */
+
+.cm-s-inner .cm-keyword {
+  color: #C792EA;
+}
+
+.cm-s-inner .cm-operator {
+  color: #89DDFF;
+}
+
+.cm-s-inner .cm-variable-2 {
+  color: #EEFFFF;
+}
+
+.cm-s-inner .cm-variable-3,
+.cm-s-inner .cm-type {
+  color: #f07178;
+}
+
+.cm-s-inner .cm-builtin {
+  color: #FFCB6B;
+}
+
+.cm-s-inner .cm-atom {
+  color: #F78C6C;
+}
+
+.cm-s-inner .cm-number {
+  color: #FF5370;
+}
+
+.cm-s-inner .cm-def {
+  color: #82AAFF;
+}
+
+.cm-s-inner .cm-string {
+  color: #C3E88D;
+}
+
+.cm-s-inner .cm-string-2 {
+  color: #f07178;
+}
+
+.cm-s-inner .cm-comment {
+  color: #585d6d;
+}
+
+.cm-s-inner .cm-variable {
+  color: #f07178;
+}
+
+.cm-s-inner .cm-tag {
+  color: #FF5370;
+}
+
+.cm-s-inner .cm-meta {
+  color: #FFCB6B;
+}
+
+.cm-s-inner .cm-attribute {
+  color: #C792EA;
+}
+
+.cm-s-inner .cm-property {
+  color: #C792EA;
+}
+
+.cm-s-inner .cm-qualifier {
+  color: #DECB6B;
+}
+
+.cm-s-inner .cm-variable-3,
+.cm-s-inner .cm-type {
+  color: #DECB6B;
+}
+
+
+.cm-s-inner .cm-error {
+  color: rgba(255, 255, 255, 1.0);
+  background-color: #FF5370;
+}
+
+.cm-s-inner .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}
+
+
+
+
+
+</style><title>5.0</title>
+</head>
+<body class='typora-export typora-export-show-outline typora-export-collapse-outline'><div class='typora-export-content'>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#mists-of-pandaria">Mists of Pandaria</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#august-celestials">August Celestials</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#emperor-shaohao">Emperor Shaohao</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#golden-lotus">Golden Lotus</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#kirin-tor-offensive">Kirin Tor Offensive</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#operation-shieldwall">Operation: Shieldwall</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#order-of-the-cloud-serpent">Order of the Cloud Serpent</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#pearlfin-jinyu">Pearlfin Jinyu</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#shado-pan">Shado-Pan</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#the-klaxxi">The Klaxxi</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#the-lorewalkers">The Lorewalkers</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#the-anglers">The Anglers</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#the-tillers">The Tillers</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h4 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#the-tillers-union-friendships">The Tillers Union Friendships</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#appendix">Appendix</a></div><ul class="outline-children"></ul></li></ul></li></div></div><div id='write'  class=''><h2 id='mists-of-pandaria'><span>Mists of Pandaria</span></h2><hr /><blockquote><p><span>Updated at 2022-12-05</span></p></blockquote><hr /><h3 id='august-celestials'><span>August Celestials</span></h3><figure><table><thead><tr><th style='text-align:center;' ><span>Quartermaster Location</span></th><th style='text-align:center;' ><span>Sage Whiteheart, Shrine of the Seven Stars</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>Tabard</span></td><td style='text-align:center;' ><span>Yes</span></td></tr><tr><td style='text-align:center;' ><span>Mount</span></td><td style='text-align:center;' ><strong><span>Reins of the Thundering August Cloud Serpent</span></strong></td></tr><tr><td style='text-align:center;' ><span>Toy</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Pet</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Title</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Achievement</span></td><td style='text-align:center;' ><span>The August Celestials &amp; Pandaren Ambassador*</span></td></tr></tbody></table></figure><p><span>Guides:</span></p><ol start='' ><li><p><span>Farm the daily quest chains given by </span><strong><span>Sage Whiteheart</span></strong><span>.</span></p><p>&nbsp;</p></li></ol><h3 id='emperor-shaohao'><span>Emperor Shaohao</span></h3><figure><table><thead><tr><th style='text-align:center;' ><span>Quartermaster Location</span></th><th style='text-align:center;' ><span>Mistweaver Ku, Timeless Isle</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>Tabard</span></td><td style='text-align:center;' ><span>Yes</span></td></tr><tr><td style='text-align:center;' ><span>Mount</span></td><td style='text-align:center;' ><strong><span>Reins of the Heavenly Golden Cloud Serpent</span></strong></td></tr><tr><td style='text-align:center;' ><span>Toy</span></td><td style='text-align:center;' ><span>Yes</span></td></tr><tr><td style='text-align:center;' ><span>Pet</span></td><td style='text-align:center;' ><span>Yes</span></td></tr><tr><td style='text-align:center;' ><span>Title</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Achievement</span></td><td style='text-align:center;' ><span>Golden Lotus &amp; Pandaren Ambassador*</span></td></tr></tbody></table></figure><p>&nbsp;</p><h3 id='golden-lotus'><span>Golden Lotus</span></h3><figure><table><thead><tr><th style='text-align:center;' ><span>Quartermaster Location</span></th><th style='text-align:center;' ><span>Jaluu the Generous, Shrine of the Seven Stars</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>Tabard</span></td><td style='text-align:center;' ><span>Yes</span></td></tr><tr><td style='text-align:center;' ><span>Mount</span></td><td style='text-align:center;' ><strong><span>3 Riding Cranes</span></strong></td></tr><tr><td style='text-align:center;' ><span>Toy</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Pet</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Title</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Achievement</span></td><td style='text-align:center;' ><span>Golden Lotus &amp; Pandaren Ambassador*</span></td></tr></tbody></table></figure><p><span>Guides:</span></p><ol start='' ><li><span>Farm mobs in </span><strong><span>Mistfall Village</span></strong><span>.</span></li><li><span>Farm the dailies in </span><strong><span>Setting Sun Garrison</span></strong><span>.</span></li></ol><p>&nbsp;</p><h3 id='kirin-tor-offensive'><span>Kirin Tor Offensive</span></h3><figure><table><thead><tr><th style='text-align:center;' ><span>Quartermaster Location</span></th><th style='text-align:center;' ><span>Hiren Loresong, Violet Rise</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>Tabard</span></td><td style='text-align:center;' ><span>Yes</span></td></tr><tr><td style='text-align:center;' ><span>Mount</span></td><td style='text-align:center;' ><strong><span>Golden Primal Direhorn</span></strong></td></tr><tr><td style='text-align:center;' ><span>Toy</span></td><td style='text-align:center;' ><span>Glorious Standard of the Kirin Tor Offensive</span></td></tr><tr><td style='text-align:center;' ><span>Pet</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Title</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Achievement</span></td><td style='text-align:center;' ><span>Kirin Tor Offensive</span></td></tr></tbody></table></figure><p><span>Guides:</span></p><ol><li><p><span>Previously the reputation of this faction is gained through stages of quests. Now all the stages have been combined together. Finish the following quest chain to unlock the dailies in Violet Rise:</span></p><ul><li><span>Thunder Calls</span></li></ul><ul><li><span>The Storm Gathers</span></li></ul><ul><li><span>Allies in the Shadow</span></li></ul><ul><li><span>The Assault on Shaol&#39;mara</span></li></ul><ul><li><span>Tear Down This Wall!</span></li></ul><ul><li><span>To the Skies!</span></li></ul><ul><li><span>A Bold Idea</span></li></ul><ul><li><span>The Fall of Shan Bu</span></li></ul></li></ol><ol start='2' ><li><span>You can choose either PvP or PvE daily quest chain, the latter of which gives more reputation per day, around 2000.</span></li></ol><p>&nbsp;</p><h3 id='operation-shieldwall'><span>Operation: Shieldwall</span></h3><figure><table><thead><tr><th style='text-align:center;' ><span>Quartermaster Location</span></th><th style='text-align:center;' ><span>Agent Malley, Lion&#39;s Landing</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>Tabard</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Mount</span></td><td style='text-align:center;' ><strong><span>2 Gryphons</span></strong></td></tr><tr><td style='text-align:center;' ><span>Toy</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Pet</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Title</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Achievement</span></td><td style='text-align:center;' ><span>Operation: Shieldwall &amp; Operation: Shieldwall Campaign</span></td></tr></tbody></table></figure><p><span>Guides:</span></p><ol><li><p><span>Do the following quest chain:</span></p><figure><table><thead><tr><th style='text-align:center;' ><span>Quest Name</span></th><th style='text-align:center;' ><span>Reputation </span></th><th style='text-align:center;' ><span>Total</span></th><th style='text-align:center;' ><span>Unlock at</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>Meet the Scout</span></td><td style='text-align:center;' ><span>150</span></td><td style='text-align:center;' ><span>150</span></td><td style='text-align:center;' ><span>0 Neutral</span></td></tr><tr><td style='text-align:center;' ><span>A King Among Men</span></td><td style='text-align:center;' ><span>300</span></td><td style='text-align:center;' ><span>450</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>Lion&#39;s Landing</span></td><td style='text-align:center;' ><span>500</span></td><td style='text-align:center;' ><span>950</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>The Best Around</span></td><td style='text-align:center;' ><span>150</span></td><td style='text-align:center;' ><span>1100</span></td><td style='text-align:center;' ><span>950 Friendly</span></td></tr><tr><td style='text-align:center;' ><span>To Catch A Spy</span></td><td style='text-align:center;' ><span>400</span></td><td style='text-align:center;' ><span>1500</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>Stirred, Not Shaken</span></td><td style='text-align:center;' ><span>400</span></td><td style='text-align:center;' ><span>1900</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>He&#39;s In Deep</span></td><td style='text-align:center;' ><span>150</span></td><td style='text-align:center;' ><span>2050</span></td><td style='text-align:center;' ><span>4900 Friendly</span></td></tr><tr><td style='text-align:center;' ><span>Bugging Out</span></td><td style='text-align:center;' ><span>400</span></td><td style='text-align:center;' ><span>2450</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>He Won&#39;t Even Miss It</span></td><td style='text-align:center;' ><span>400</span></td><td style='text-align:center;' ><span>2850</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>The Kirin Tor</span></td><td style='text-align:center;' ><span>200</span></td><td style='text-align:center;' ><span>3050</span></td><td style='text-align:center;' ><span>2850 Honored</span></td></tr><tr><td style='text-align:center;' ><span>The Fate of Dalaran</span></td><td style='text-align:center;' ><span>500</span></td><td style='text-align:center;' ><span>3550</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>To Mogujia</span></td><td style='text-align:center;' ><span>150</span></td><td style='text-align:center;' ><span>3700</span></td><td style='text-align:center;' ><span>6800 Honored</span></td></tr><tr><td style='text-align:center;' ><span>Bad Blood</span></td><td style='text-align:center;' ><span>400</span></td><td style='text-align:center;' ><span>4100</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>The Source of Korune Power</span></td><td style='text-align:center;' ><span>400</span></td><td style='text-align:center;' ><span>4500</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>Anduin&#39;s Plea</span></td><td style='text-align:center;' ><span>200</span></td><td style='text-align:center;' ><span>4700</span></td><td style='text-align:center;' ><span>10750 Honored</span></td></tr><tr><td style='text-align:center;' ><span>Heart Of The Alliance</span></td><td style='text-align:center;' ><span>500</span></td><td style='text-align:center;' ><span>5200</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>The Kun-Lai Expedition</span></td><td style='text-align:center;' ><span>150</span></td><td style='text-align:center;' ><span>5350</span></td><td style='text-align:center;' ><span>2700 Revered</span></td></tr><tr><td style='text-align:center;' ><span>A Kor&#39;kron In Our Midst</span></td><td style='text-align:center;' ><span>400</span></td><td style='text-align:center;' ><span>5750</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>Memory Wine</span></td><td style='text-align:center;' ><span>400</span></td><td style='text-align:center;' ><span>6250</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>The Ruins of Korune</span></td><td style='text-align:center;' ><span>200</span></td><td style='text-align:center;' ><span>6450</span></td><td style='text-align:center;' ><span>6650 Revered</span></td></tr><tr><td style='text-align:center;' ><span>The Divine Bell</span></td><td style='text-align:center;' ><span>500</span></td><td style='text-align:center;' ><span>6950</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>Darnassus Attacked?</span></td><td style='text-align:center;' ><span>100</span></td><td style='text-align:center;' ><span>7050</span></td><td style='text-align:center;' ><span>8600 Revered</span></td></tr><tr><td style='text-align:center;' ><span>Tracking the Thieves</span></td><td style='text-align:center;' ><span>200</span></td><td style='text-align:center;' ><span>7250</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>Jaina&#39;s Resolution</span></td><td style='text-align:center;' ><span>100</span></td><td style='text-align:center;' ><span>7350</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>Sewer Cleansing</span></td><td style='text-align:center;' ><span>200</span></td><td style='text-align:center;' ><span>7550</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>Unfair Trade</span></td><td style='text-align:center;' ><span>200</span></td><td style='text-align:center;' ><span>7750</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>Cashing Out</span></td><td style='text-align:center;' ><span>200</span></td><td style='text-align:center;' ><span>7950</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>Nowhere to Hide</span></td><td style='text-align:center;' ><span>200</span></td><td style='text-align:center;' ><span>8150</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>Nowhere to Run</span></td><td style='text-align:center;' ><span>200</span></td><td style='text-align:center;' ><span>8350</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>What Had To Be Done</span></td><td style='text-align:center;' ><span>350</span></td><td style='text-align:center;' ><span>8700</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>The Harmonic Mallet</span></td><td style='text-align:center;' ><span>100</span></td><td style='text-align:center;' ><span>8800</span></td><td style='text-align:center;' ><span>14540 Revered</span></td></tr><tr><td style='text-align:center;' ><span>The Monkey King</span></td><td style='text-align:center;' ><span>150</span></td><td style='text-align:center;' ><span>8950</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>The First Riddle: Mercy</span></td><td style='text-align:center;' ><span>150</span></td><td style='text-align:center;' ><span>9100</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>The Second Riddle: Fellowship</span></td><td style='text-align:center;' ><span>150</span></td><td style='text-align:center;' ><span>9250</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>The Third Riddle: Strength</span></td><td style='text-align:center;' ><span>150</span></td><td style='text-align:center;' ><span>9400</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>The Greatest Prank</span></td><td style='text-align:center;' ><span>250</span></td><td style='text-align:center;' ><span>9650</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>The Head</span></td><td style='text-align:center;' ><span>250</span></td><td style='text-align:center;' ><span>9800</span></td><td style='text-align:center;' ><span>18500 Revered</span></td></tr><tr><td style='text-align:center;' ><span>The Harmonic Ointment</span></td><td style='text-align:center;' ><span>250</span></td><td style='text-align:center;' ><span>10050</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>Rebuilding the Mallet</span></td><td style='text-align:center;' ><span>250</span></td><td style='text-align:center;' ><span>10300</span></td><td style='text-align:center;' >&nbsp;</td></tr></tbody></table></figure></li><li><p><span>After finishing </span><strong><span>Lion&#39;s Landing</span></strong><span>, new dailies (giving 900 reputation in total) will appear on the deck of </span><strong><span>Skyfire</span></strong><span>. </span><strong><span>Huntsman Blake</span></strong><span> also sells quest items which offers you a beastmaster daily and gives an extra 200 reputation.</span></p></li><li><p><span>After getting exalted, you can purchase </span><strong><span>Grand Armored Gryphon</span></strong><span> from the quartermaster. You can also finish the follow quest chain to earn the </span><strong><span>Operation: Shieldwall Campaign</span></strong><span> achivement and </span><strong><span>Grand Gryphon</span></strong><span> mount:</span></p><ul><li><span>The Bell Speaks</span></li><li><span>Breath of Darkest Shadow</span></li><li><span>The Silence</span></li></ul><p>&nbsp;</p></li></ol><h3 id='order-of-the-cloud-serpent'><span>Order of the Cloud Serpent</span></h3><figure><table><thead><tr><th style='text-align:center;' ><span>Quartermaster Location</span></th><th style='text-align:center;' ><span>No</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>Tabard</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Mount</span></td><td style='text-align:center;' ><strong><span>3 Cloud Serpent</span></strong><span> &amp; </span><strong><span>2 Design: Panther</span></strong></td></tr><tr><td style='text-align:center;' ><span>Toy</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Pet</span></td><td style='text-align:center;' ><span>Fishy</span></td></tr><tr><td style='text-align:center;' ><span>Title</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Achievement</span></td><td style='text-align:center;' ><span>Pandaren Ambassador*</span></td></tr></tbody></table></figure><p><span>Guides:</span></p><ol start='' ><li><p><span>Stage One:</span></p><ul><li><span>Wild Things</span></li><li><span>Beating the Odds</span></li><li><span>Empty Nests</span></li><li><span>Egg Collection</span></li><li><span>The Rider&#39;s Journey</span></li><li><span>It&#39;s A...</span></li></ul><p><span>After finishing this quest chain you will unlock the following dailies:</span></p><ul><li><span>Catch!</span></li><li><span>Sweet as Honey</span></li></ul></li><li><p><span>Stage Two:</span></p><p><span>After getting Revered with this faction, 3 more dailies will be unlocked.</span></p></li><li><p><span>For those who have learnt the following professions, more dailies will be unlocked:</span></p><ul><li><span>Archaeology: Fragments of the Past</span></li><li><span>Cooking: A Feast for the Senses</span></li><li><span>Tailoring: Just a Flesh Wound</span></li><li><span>Fishing: Snack Time</span></li></ul></li></ol><p>&nbsp;</p><h3 id='pearlfin-jinyu'><span>Pearlfin Jinyu</span></h3><figure><table><thead><tr><th style='text-align:center;' ><span>Quartermaster Location</span></th><th style='text-align:center;' ><span>No</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>Tabard</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Mount</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Toy</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Pet</span></td><td style='text-align:center;' ><span>Fishy</span></td></tr><tr><td style='text-align:center;' ><span>Title</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Achievement</span></td><td style='text-align:center;' ><span>Pandaren Ambassador*</span></td></tr></tbody></table></figure><p><span>Guides:</span></p><ol start='' ><li><p><span>Finish the following quests in Southern </span><strong><span>Jade Forest</span></strong><span>:</span></p><ul><li><span>SI:7 Report: Lost in the Woods</span></li><li><span>SI:7 Report: Fire From the Sky</span></li><li><span>SI:7 Report: Hostile Natives</span></li><li><span>SI:7 Report: Take No Prisoners</span></li><li><span>Seek Out the Lorewalker</span></li><li><span>A Perfect Match</span></li><li><span>Borrowed Brew</span></li><li><span>A Visit with Lorewalker Cho</span></li><li><span>Potency</span></li><li><span>Body</span></li><li><span>Hue</span></li><li><span>Finding Your Center</span></li><li><span>Sacred Water</span></li><li><span>Rest In Peace</span></li><li><span>An Ancient Legend</span></li><li><span>Anduin&#39;s Decision</span></li><li><span>Bigger Fish to Fry</span></li><li><span>Let Them Burn (</span><strong><span>Fishy</span></strong><span> being this quest&#39;s reward)</span></li><li><span>Carp Diem</span></li></ul><p><span>Each of these quests awards several thousands of reputation, and thus, by the end of this quest chain you will be Exalted with </span><u><span>Pearlfin Jinyu</span></u><span>.</span></p></li></ol><p>&nbsp;</p><h3 id='shado-pan'><span>Shado-Pan</span></h3><figure><table><thead><tr><th style='text-align:center;' ><span>Quartermaster Location</span></th><th style='text-align:center;' ><span>Rushi the Fox, Shado-Pan Garrison</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>Tabard</span></td><td style='text-align:center;' ><span>Yes</span></td></tr><tr><td style='text-align:center;' ><span>Mount</span></td><td style='text-align:center;' ><strong><span>3 Shado-Pan Riding Tigers</span></strong><span> &amp; </span><strong><span>Reins of the Onyx Cloud Serpent</span></strong></td></tr><tr><td style='text-align:center;' ><span>Toy</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Pet</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Title</span></td><td style='text-align:center;' ><span>Shado-Master*</span></td></tr><tr><td style='text-align:center;' ><span>Achievement</span></td><td style='text-align:center;' ><span>Shado-Pan &amp; The Shado-Master* &amp; Pandaren Ambassador*</span></td></tr></tbody></table></figure><p><span>Guides:</span></p><ol start='' ><li><span>Do all quests in </span><strong><span>Townlong Steppes</span></strong><span>, especially the dailies in </span><strong><span>Shado-Pan Garrison</span></strong><span>.</span></li><li><span>Upon reaching Exalted, you can purchase the </span><strong><span>Shado-Pan Riding Tigers</span></strong><span> from Quartermaster, and obtain the </span><strong><span>Reins of the Onyx Cloud Serpent</span></strong><span> as a reward of </span><strong><span>Mogu Incursions</span></strong><span> and </span><strong><span>Surprise Attack!</span></strong><span> quests.</span></li></ol><p>&nbsp;</p><h3 id='the-klaxxi'><span>The Klaxxi</span></h3><figure><table><thead><tr><th style='text-align:center;' ><span>Quartermaster Location</span></th><th style='text-align:center;' ><span>Ambersmith Zikk, Klaxxi&#39;vess</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>Tabard</span></td><td style='text-align:center;' ><span>Yes</span></td></tr><tr><td style='text-align:center;' ><span>Mount</span></td><td style='text-align:center;' ><strong><span>Amber Scorpion</span></strong></td></tr><tr><td style='text-align:center;' ><span>Toy</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Pet</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Title</span></td><td style='text-align:center;' ><span>Wakener*</span></td></tr><tr><td style='text-align:center;' ><span>Achievement</span></td><td style='text-align:center;' ><span>Klaxxi &amp; Wakener* &amp; Pandaren Ambassador*</span></td></tr></tbody></table></figure><p><span>Guides:</span></p><ol start='' ><li><span>Do all Mantid-related quests in </span><strong><span>Dread Wastes</span></strong><span>, especially the dailies in </span><strong><span>Klaxxi&#39;vess</span></strong><span>.</span></li></ol><p>&nbsp;</p><h3 id='the-lorewalkers'><span>The Lorewalkers</span></h3><figure><table><thead><tr><th style='text-align:center;' ><span>Quartermaster Location</span></th><th style='text-align:center;' ><span>Tan Shin Tiao, Seat of Knowledge</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>Tabard</span></td><td style='text-align:center;' ><span>Yes</span></td></tr><tr><td style='text-align:center;' ><span>Mount</span></td><td style='text-align:center;' ><strong><span>Disc of the Red Flying Cloud</span></strong></td></tr><tr><td style='text-align:center;' ><span>Toy</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Pet</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Title</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Achievement</span></td><td style='text-align:center;' ><span>The Lorewalkers &amp; Pandaren Ambassador*</span></td></tr></tbody></table></figure><p><span>Guides: (copied from Faowind&#39;s post in Wowhead)</span></p><p><strong><span>Ballad of Liu Lang</span></strong></p><ul><li><span>A Most Famous Bill of Sale - Valley of the Four Winds - 55 47</span></li><li><span>The Birthplace of Liu Lang - Valley of the Four Winds - 20 55</span></li><li><span>Waiting for the Turtle - Krasarang Wilds - 72 30</span></li><li><span>Wondering Widow - Valley of the Four Winds - 34 63</span></li></ul><p><strong><span>Between a Saurok and a Hard Place</span></strong></p><ul><li><span>Last Stand - Krasarang Wilds - 32 29</span></li><li><span>The Defiant - The Veiled Stair - 55 15</span></li><li><span>The Deserters - Dread Wastes - 67 60</span></li><li><span>The Saurok - Jade Forest - 67 29</span></li></ul><p><strong><span>Fish Tails</span></strong></p><ul><li><span>Origins - Krasarang Wilds - 30 38</span></li><li><span>Role Call - Kun-Lai Summit - 74 83</span></li><li><span>Watersmithing - Jade Forest - 65 87</span></li><li><span>Waterspeakers - Valley of the Four Winds - 61 34</span></li></ul><p><strong><span>Heart of the Mantid Swarm</span></strong></p><ul><li><span>Amber - Dread Wastes - 52 10</span></li><li><span>Cycle of the Mantid - Dread Wastes - 48 32</span></li><li><span>Mantid Society - Dread Wastes - 59 55</span></li><li><span>The Empress - Dread Wastes - 35 32</span></li></ul><p><strong><span>Hozen in the Mist</span></strong></p><ul><li><span>Embracing the Passion - Valley of the Four Winds - 83 21</span></li><li><span>Hozen Maturity - Krasarang Wilds - 52 87</span></li><li><span>Hozen Speech - Jade Forest - 26 28</span></li><li><span>The Hozen Ravage - Kun-Lai Summit - 45 61</span></li></ul><p><strong><span>Legend of the Brewfathers</span></strong></p><ul><li><span>Quan Tou Kuo the Two Fisted - Krasarang Wilds - 81 11</span></li><li><span>Ren Yun the Blind - Kun-Lai Summit - 44 53</span></li><li><span>Xin Wu Yin the Broken Hearted - Jade Forest - 37 30</span></li></ul><p><strong><span>The Dark Heart of the Mogu</span></strong></p><ul><li><span>Spirit Binders - Jade Forest - 42 17</span></li><li><span>The Lost Dynasty - Krasarang Wilds - 50 31</span></li><li><span>The Thunder King - Vale of Eternal Blossoms - 40 77</span></li><li><span>Valley of Emperers - Kun-Lai Summit - 53 46</span></li><li><em><span>Note - Within a subzone  at 58 71; above is the entrance</span></em></li></ul><p><strong><span>The Seven Burdens of Shaohao</span></strong></p><ul><li><span>The Emperor&#39;s Burden - Part 1 - Jade Forest - 47 45</span></li><li><span>The Emperor&#39;s Burden - Part 2 - Kun-Lai Summit - 43 51</span></li><li><span>The Emperor&#39;s Burden - Part 3 - Jade Forest - 55 56</span></li><li><span>The Emperor&#39;s Burden - Part 4 - Krasarang Wilds - 40 56</span></li><li><span>The Emperor&#39;s Burden - Part 5 - Townlong Steppes - 37 62</span></li><li><span>The Emperor&#39;s Burden - Part 6 - Kun-Lai Summit - 67 48</span></li><li><span>The Emperor&#39;s Burden - Part 7 - Kun-Lai Summit - 41 42</span></li><li><span>The Emperor&#39;s Burden - Part 8 - Vale of Eternal Blossoms - 68 44</span></li></ul><p><strong><span>The Song of Yaungol</span></strong></p><ul><li><span>Dominance - Townlong Steppes - 65 49</span></li><li><span>Trapped in a Strange Land - Townlong Steppes - 84 72</span></li><li><span>Yaungoil - Kun-Lai Summit - 71 62</span></li><li><span>Yaungol Tactics - Kun-Lai Summit - 50 79</span></li></ul><p><strong><span>What Is Worth Fighting For</span></strong></p><ul><li><span>Always Remember - Vale of Eternal Blossoms - 52 68</span></li><li><span>Pandaren Fighting Tactics - Valley of the Four Winds - 18 31</span></li><li><span>The First Monks - Jade Forest - 35 30</span></li><li><span>Together  We Are Strong - Vale of Eternal Blossoms - 26 21</span></li><li><span>Victory in Kun-Lai - Kun-Lai Summit - 63 40</span></li></ul><p><span>The following three quests are located on </span><strong><span>Isles of Thunder</span></strong></p><p><strong><span>Rumbles of Thunder</span></strong></p><ul><li><span>Lei Shen - 40.2 40.6</span></li><li><span>The Sacred Mount - 47.0 59.9</span></li><li><span>Unity at a Price - 34.9 65.6</span></li><li><span>The Pandaren Problem - 60.7 68.8</span></li></ul><p><strong><span>The Zandalari Prophecy</span></strong></p><ul><li><span>Coming of Age - 35.1 70.1</span></li><li><span>For Council and King - 68.7 45.8.</span></li><li><span>Shadows of the Loa - 36.3 70.4</span></li><li><span>The Dark Prophet Zul - 52.6 41.4</span></li></ul><p><strong><span>Gods or Monsters</span></strong></p><ul><li><span>Agents of Order - 35.8 54.7</span></li><li><span>Shadow Storm and Stone - 59.2 26.3</span></li><li><span>The Curse and the Silence - 49.9 20.4</span></li><li><span>Age of a Hundred Kings - 62.5 37.7</span></li></ul><p><span>After finishing each of the achievements mentioned above, a quest will pop up, asking you to go to </span><strong><span>Seat of Knowledge</span></strong><span> and listen to the tales told by </span><strong><span>Lorewalker Cho</span></strong><span>. Turning in the quest will award you several thousands of </span><u><span>The Lorewalker</span></u><span> reputation.</span></p><p>&nbsp;</p><h3 id='the-anglers'><span>The Anglers</span></h3><figure><table><thead><tr><th style='text-align:center;' ><span>Quartermaster Location</span></th><th style='text-align:center;' ><span>Nat Pagle, Angler&#39;s Wharf</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>Tabard</span></td><td style='text-align:center;' ><span>Yes</span></td></tr><tr><td style='text-align:center;' ><span>Mount</span></td><td style='text-align:center;' ><strong><span>Azure Water Strider</span></strong></td></tr><tr><td style='text-align:center;' ><span>Toy</span></td><td style='text-align:center;' ><span>Angler&#39;s Fishing Raft</span></td></tr><tr><td style='text-align:center;' ><span>Pet</span></td><td style='text-align:center;' ><span>Tiny Goldfish</span></td></tr><tr><td style='text-align:center;' ><span>Title</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Achievement</span></td><td style='text-align:center;' ><span>The Anglers &amp; Pandaren Ambassador*</span></td></tr></tbody></table></figure><p><span>Guides:</span></p><ol><li><span>Doing dailies in </span><strong><span>Angler&#39;s Wharf, Krasarang Wilds</span></strong></li><li><span>Finishing quests in </span><strong><span>Soggy Gamble, Dread Wastes</span></strong></li><li><strong><span>Bipsi&#39;s Bobbing Berg</span></strong><span> is somehow better than </span><strong><span>Agnler&#39;s Fishing Raft</span></strong><span> as being instant castable.</span></li><li><span>Turning uncommon fish to </span><strong><span>Nat Pagle</span></strong><span> will increase your friendship with him as well as your reputation of </span><strong><span>The Anglers</span></strong><span>.</span></li></ol><p>&nbsp;</p><h3 id='the-tillers'><span>The Tillers</span></h3><figure><table><thead><tr><th style='text-align:center;' ><span>Quartermaster Location</span></th><th style='text-align:center;' ><span>Gina Mudclaw, Halfhill</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>Tabard</span></td><td style='text-align:center;' ><span>Yes</span></td></tr><tr><td style='text-align:center;' ><span>Mount</span></td><td style='text-align:center;' ><strong><span>3 Riding Goat</span></strong></td></tr><tr><td style='text-align:center;' ><span>Toy</span></td><td style='text-align:center;' ><span>Gin-Ji Knife Set &amp; Pandaren Scarecrow</span></td></tr><tr><td style='text-align:center;' ><span>Pet</span></td><td style='text-align:center;' ><span>No</span></td></tr><tr><td style='text-align:center;' ><span>Title</span></td><td style='text-align:center;' ><span>Farmer</span></td></tr><tr><td style='text-align:center;' ><span>Achievement</span></td><td style='text-align:center;' ><span>The Tillers &amp; Pandaren Ambassador*</span></td></tr></tbody></table></figure><p><span>Guides:</span></p><ol><li><p><span>The quest chain of Farmer Yoon joining the Tillers Union:</span></p><ul><li><span>Learn and Grow (I - VI)</span></li><li><span>Mung-Mung&#39;s Vote (I - III), requires 5500 Honored</span></li><li><span>Farmer Fung&#39;s Vote (I - III), requires 4500 Revered</span></li><li><span>Nana Mudclaw&#39;s Vote (I - III), requires 8500 Revered</span></li><li><span>Haohan Mudclaw&#39;s Vote (I - V), requires 16800 Revered</span></li></ul></li><li><p><span>The quest chain of expanding and enhancing your farm:</span></p><ul><li><p><span>Growing the Farm I: the Weeds, requires Honored</span></p><p><span>This unlocks the </span><strong><span>&quot;Jinyu Princess&quot; Irrigation System</span></strong><span> from </span><strong><span>Gina Mudclaw</span></strong><span>, allowing you to water two rows of crops at once.</span></p></li><li><p><span>Growing the Farm I: A Little Problem - this expands your farm from 4 soils to 8.</span></p></li><li><p><span>Growing the Farm II: The Broken Wagon, requires Revered</span></p><p><span>This unlocks the </span><strong><span>&quot;Thunder King&quot; Pest Repellers</span></strong><span>, allowing you to spray up two rows of infested crops at once.</span></p></li><li><p><span>Growing the Farm II: Knock on the Wood - this expands your farm from 8 soils to 12.</span></p></li><li><p><span>Growing the Farm III: The Mossy Boulder, requires Exalted - this expands your farm from 12 soils to 16.</span></p><p><span>This unlocks the </span><strong><span>&quot;Earth-Shaker&quot; Master Plow</span></strong><span>, allowing you to till a row of untilled soil at once.</span></p></li></ul></li><li><p><span>Dailies in </span><strong><span>Halfhill</span></strong><span> will provide 1075 reputation per day.</span></p></li></ol><h4 id='the-tillers-union-friendships'><span>The Tillers Union Friendships</span></h4><p><span>Each member of this Union has a special reputation bar called &quot;Friendship&quot;. It is divided into 6 levels: Stranger, Acquaintance, Buddy, Friend, Good Friend and Best Friend. Each level is equal to 8400 Friendships, so the entire bar is still 42000. Special rewards will be given once hitting &quot;Best Friend&quot;. </span></p><figure><table><thead><tr><th style='text-align:center;' ><span>Name</span></th><th style='text-align:center;' ><span>Location</span></th><th style='text-align:center;' ><span>Ideal Gift</span></th><th style='text-align:center;' ><span>Food</span></th><th style='text-align:center;' ><span>Reward to you</span></th><th style='text-align:center;' ><span>Adds to the farm</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>Chee Chee</span></td><td style='text-align:center;' ><span>34.4 46.8</span></td><td style='text-align:center;' ><span>Blue Feather</span></td><td style='text-align:center;' ><span>Valley Stir Fry</span></td><td style='text-align:center;' ><span>A pack of cloth and feather</span></td><td style='text-align:center;' ><span>a sheep</span></td></tr><tr><td style='text-align:center;' ><span>Ella</span></td><td style='text-align:center;' ><span>31.6 58.0</span></td><td style='text-align:center;' ><span>Jade Cat</span></td><td style='text-align:center;' ><span>Shrimp Dumplings</span></td><td style='text-align:center;' ><span>A pack of blossom seeds</span></td><td style='text-align:center;' ><strong><span>Luna</span></strong></td></tr><tr><td style='text-align:center;' ><span>Farmer Fung</span></td><td style='text-align:center;' ><span>48.2 33.8</span></td><td style='text-align:center;' ><span>Marsh Lily</span></td><td style='text-align:center;' ><span>Wildfowl Roast</span></td><td style='text-align:center;' ><strong><span>Enigma Seed</span></strong></td><td style='text-align:center;' ><strong><span>Shaggy the Prize Yak</span></strong></td></tr><tr><td style='text-align:center;' ><span>Fish Fellreed</span></td><td style='text-align:center;' ><span>41.6 30.0</span></td><td style='text-align:center;' ><span>Jade Cat</span></td><td style='text-align:center;' ><span>Twin Fish Platter</span></td><td style='text-align:center;' ><span>A pack of profession seeds</span></td><td style='text-align:center;' ><span>3 pink pigs</span></td></tr><tr><td style='text-align:center;' ><span>Gina Mudclaw</span></td><td style='text-align:center;' ><span>Halfhill</span></td><td style='text-align:center;' ><span>Marsh Lily</span></td><td style='text-align:center;' ><span>Swirling Mist Soup</span></td><td style='text-align:center;' ><span>A box of fireworks</span></td><td style='text-align:center;' ><span>a mailbox</span></td></tr><tr><td style='text-align:center;' ><span>Haohan Mudclaw</span></td><td style='text-align:center;' ><span>44.6 34.0</span></td><td style='text-align:center;' ><span>Ruby Shard</span></td><td style='text-align:center;' ><span>Charbroiled Tiger Steak</span></td><td style='text-align:center;' ><span>3 </span><strong><span>Songbell Seed</span></strong></td><td style='text-align:center;' ><strong><span>Miss Fifi</span></strong></td></tr><tr><td style='text-align:center;' ><span>Jogu the Drunk</span></td><td style='text-align:center;' ><span>Halfhill</span></td><td style='text-align:center;' ><span>Lovely Apple</span></td><td style='text-align:center;' ><span>Sauteed Carrots</span></td><td style='text-align:center;' ><span>A stash of drinks</span></td><td style='text-align:center;' ><span>free crop predictions</span></td></tr><tr><td style='text-align:center;' ><span>Old Hillpaw</span></td><td style='text-align:center;' ><span>31.0 53.0</span></td><td style='text-align:center;' ><span>Blue Feather</span></td><td style='text-align:center;' ><span>Braised Turtle</span></td><td style='text-align:center;' ><strong><span>Straw Hat</span></strong></td><td style='text-align:center;' ><span>chickens</span></td></tr><tr><td style='text-align:center;' ><span>Sho</span></td><td style='text-align:center;' ><span>29.6 30.6</span></td><td style='text-align:center;' ><span>Lovely Apple</span></td><td style='text-align:center;' ><span>Eternal Blossom Fish</span></td><td style='text-align:center;' ><strong><span>Red Thicket</span></strong></td><td style='text-align:center;' ><span>an orange tree</span></td></tr><tr><td style='text-align:center;' ><span>Tina Mudclaw</span></td><td style='text-align:center;' ><span>45.0 33.8</span></td><td style='text-align:center;' ><span>Ruby Shard</span></td><td style='text-align:center;' ><span>Fire Spirit Salmon</span></td><td style='text-align:center;' ><span>Foods</span></td><td style='text-align:center;' ><span>furnitures</span></td></tr></tbody></table></figure><p><span>Note:</span></p><ul><li><p><span>For each NPC, if you give him/her an &quot;unideal&quot; gift, you&#39;ll only gain 540 Friendships. An ideal gift will increase the reward to 900 Friendships.</span></p></li><li><p><span>For each NPC, you can provide 5 of his/her favourite food, which increases 1800 Friendships in return.</span></p></li><li><p><span>Each NPC will have a special daily which rewards 2000 Friendships and 150 reputation of </span><strong><span>The Tillers</span></strong><span>.</span></p></li><li><p><strong><span>Chee Chee</span></strong><span>, </span><strong><span>Ella</span></strong><span>, </span><strong><span>Jogu the Drunk</span></strong><span> and </span><strong><span>Sho</span></strong><span> offers special non-daily quests upon hitting a new level of Friendships.</span></p></li><li><p><span>Finishing the farm-expanding quests and </span><strong><span>Farmer Yoon</span></strong><span> quests will also increase </span><strong><span>Farmer Fung</span></strong><span>, </span><strong><span>Gina Mudclaw</span></strong><span> and </span><strong><span>Haohan Mudclaw</span></strong><span> Friendships.</span></p></li><li><p><strong><span>Jogu the Drunk</span></strong><span> offers crop predictions to your next day&#39;s harvest.</span></p><ul><li><span>Normal Harvest: 5 per soil</span></li><li><span>Normal Harvest according to prediction: 7 per soil</span></li><li><span>Plump Harvest: 8 per soil</span></li><li><span>Plump Harvest according to prediction: 10 per soil</span></li></ul><p><span>The fee of prediction is:</span></p><ul><li><span>25 Gold while Stranger</span></li><li><span>20 Gold while Acquaintance</span></li><li><span>15 Gold while buddy</span></li><li><span>10 Gold while Friend</span></li><li><span>5 Gold while Good Friend</span></li><li><span>Free after Best Friend</span></li></ul><p>&nbsp;</p></li></ul><h3 id='appendix'><span>Appendix</span></h3><ul><li><span>Farm </span><strong><span>Zandalari Warscout</span></strong><span>s and </span><strong><span>Zandalari Warbringer</span></strong><span>s to get a huge boost while grinding reputations of </span><u><span>August Celestials</span></u><span>, </span><u><span>Golden Lotus</span></u><span>, </span><u><span>Shado-Pan</span></u><span> and </span><u><span>The Klaxxi</span></u><span>. It is strongly recommended to use the </span><strong><span>Insignias</span></strong><span> during Pandaren Timewalking.</span></li><li><span>Use the </span><strong><span>Grand Commendation</span></strong><span> to increase your reputation gaining by 200% after getting Revered. The following factions support doing so: </span><u><span>August Celestials</span></u><span>, </span><u><span>Golden Lotus</span></u><span>, </span><u><span>Kirin Tor Offensive</span></u><span>, </span><u><span>Operation: Shieldwall</span></u><span>, </span><u><span>Order of the Cloud Serpent</span></u><span>, </span><u><span>Shado-Pan</span></u><span>, </span><u><span>The Klaxxi</span></u><span>, </span><u><span>The Lorewalkers</span></u><span>, </span><u><span>The Anglers</span></u><span> and </span><u><span>The Tillers</span></u><span>. The </span><strong><span>Grand Commendation</span></strong><span> is compatible with Timewalking boost, making the grinding much easier during Pandaria Timewalking as all reputation will be increased by 300%.</span></li><li><span>After completing the </span><strong><span>Inherit the Earth</span></strong><span> quest in </span><strong><span>Halfhill</span></strong><span>, </span><strong><span>Work Order</span></strong><span> quests will be assigned to boost your reputation grinding by harvesting in </span><strong><span>Sunsong Ranch</span></strong><span>.</span></li></ul><p>&nbsp;</p><p><a href='https://david-dhc.github.io/World-of-Warcraft'><span>Back to Main</span></a></p></div></div>
+
+<script>(function(){var e=document.body.parentElement,t=[],n=null,i=document.body.classList.contains("typora-export-collapse-outline"),r=function(e,t,n){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var i=e.target;i&&i!=this;i=i.parentNode)if(i.matches(t)){!1===n.call(i,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)};function o(){return e.scrollTop}r("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),d(),!1}),r("click",".outline-item",function(e){var t=this.querySelector(".outline-label");if(location.hash="#"+t.getAttribute("href"),i){var n=this.closest(".outline-item-wrapper").classList;n.contains("outline-item-open")||n.add("outline-item-open"),c(),n.add("outline-item-active")}});var a,s,l=function(){var e=o();n=null;for(var i=0;i<t.length&&t[i][1]-e<60;i++)n=t[i]},c=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},d=function(){if(n){c();var e=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(n[0]):n[0])+'"]');if(e)if(i){var t=e.closest(".outline-item-open>ul>.outline-item-wrapper");if(t)t.classList.add("outline-item-active");else{for(var r=(e=e.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");r;)r=(e=r).parentElement.closest(".outline-item-wrapper");e.classList.add("outline-item-active")}}else e.closest(".outline-item-wrapper").classList.add("outline-item-active")}};window.addEventListener("scroll",function(e){a&&clearTimeout(a),a=setTimeout(function(){l(),d()},300)});var u=function(){s=setTimeout(function(){!function(){t=[];var e=o();document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(n=>{var i=n.getAttribute("id");t.push([i,e+n.getBoundingClientRect().y])})}(),l(),d()},300)};window.addEventListener("resize",function(e){s&&clearTimeout(s),u()}),u()})();</script></body>
+</html>

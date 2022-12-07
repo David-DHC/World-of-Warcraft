@@ -7,3 +7,6 @@
 ---
 
 393/400 completed.
+
+[Back to Main](https://david-dhc.github.io/World-of-Warcraft)
+

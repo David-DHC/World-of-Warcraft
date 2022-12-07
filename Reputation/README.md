@@ -68,7 +68,7 @@ I've done 100 exalted reputation achievement this summer. Here's my entire list.
     5.  The Earthen Ring
     6.  Therazane
     7.  Wildhammer Clan
-5.  Mists of Pandaria 
+5.  [Mists of Pandaria](https://david-dhc.github.io/World-of-Warcraft/Reputation/MoP.html)
     1.  August Celestials
     2.  Emperor Shaohao
     3.  Golden Lotus
@@ -81,7 +81,7 @@ I've done 100 exalted reputation achievement this summer. Here's my entire list.
     10.  The Lorewalkers
     11.  The Anglers
     12.  The Tillers
-6.  Warlords of Draenor
+6.  [Warlords of Draenor](https://david-dhc.github.io/World-of-Warcraft/Reputation/WoD.html)
     1.  Arakkoa Outcasts
     2.  Council of Exarchs
     3.  Hand of the Prophet
