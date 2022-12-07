@@ -1,4 +1,4 @@
-World of Warcraft Guides and Diaries
+# World of Warcraft Guides and Diaries
 
 ---
 
