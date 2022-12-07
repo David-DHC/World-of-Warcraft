@@ -1,3 +1,7 @@
+World of Warcraft Guides and Diaries
+
+---
+
 >   Updated at 2022-12-07
 
 ---
