@@ -11,7 +11,7 @@ Normally the rare elites in Argus have two modes:
 -   At work: while in this mode, the rare elites will respawn in the same place 1-2 minutes after being slain. In most cases a world quest, which requires slaying it, will also appear on the world map.
 -   Not at work: while in this mode, the rare elites won't spawn at all for several hours.
 
-Some rare elites, however, don't follow this rule or need special ways to summon. Check out the [Guide of Commander of Argus] for them.
+Some rare elites, however, don't follow this rule or need special ways to summon. Check out the [Guide of Commander of Argus](https://david-dhc.github.io/World-of-Warcraft/Achievements/CommanderofArgus.html) for them.
 
 
 

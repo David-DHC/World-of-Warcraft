@@ -89,33 +89,40 @@ I've done 100 exalted reputation achievement this summer. Here's my entire list.
     5.  Sha'tari Defense
     6.  Steamwheedle Preservation Society
     7.  The Saberstalkers
-7.  Legion
-    1.  Armies of the Legionfall
-    2.  Army of the Light
-    3.  Argussian Reach
-    4.  Court of Farondis
-    5.  Dreamweavers
-    6.  Highmountain Tribe
-    7.  The Nightfallen
-    8.  The Wardens
-    9.  Valajar
-8.  Battle for Azeroth
-    1.  7th Legion
-    2.  Champions of Azeroth
-    3.  Honeyback Hive
-    4.  Order of Embers
-    5.  Proudmoore Admiralty
-    6.  Rustbolt Resistance
-    7.  Storm's Wake
-    8.  Tortollan Seekers
-    9.  Waveblade Ankoan
-9.  Shadowlands 
-    1.  Court of Harvesters
-    2.  The Ascended
-    3.  The Avowed
-    4.  The Enlightened
-    5.  Undying Army
-    6.  Wild Hunt
-10.  Guild
+
+
+
+With World Quest and Weekly Quest system applied since 7.0, nearly all factions' reputation is gained from finishing the Quests, making it unnecessary to write guides for them. Happy farming!
+
+
+
+7.   Legion
+     1.  Armies of the Legionfall
+     1.  Army of the Light
+     1.  Argussian Reach
+     1.  Court of Farondis
+     1.  Dreamweavers
+     1.  Highmountain Tribe
+     1.  The Nightfallen
+     1.  The Wardens
+     1.  Valajar
+8.   Battle for Azeroth
+     1.   7th Legion
+     2.   Champions of Azeroth
+     3.   Honeyback Hive (Checkout [Honeyback Harvester Guide](https://david-dhc.github.io/World-of-Warcraft/Mounts/HoneybackHarvester.html) for details)
+     4.   Order of Embers
+     5.   Proudmoore Admiralty
+     6.   Rustbolt Resistance
+     7.   Storm's Wake
+     8.   Tortollan Seekers
+     9.   Waveblade Ankoan
+9.   Shadowlands 
+     1.   Court of Harvesters
+     2.   The Ascended
+     3.   The Avowed
+     4.   The Enlightened
+     5.   Undying Army
+     6.   Wild Hunt
+10.   Guild
 
 [Back to Main](https://david-dhc.github.io/World-of-Warcraft)

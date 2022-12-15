@@ -2,13 +2,19 @@
 
 ---
 
->   Updated at 2022-12-07
+>   Updated at 2022-12-08
 
 ---
+
+## [Achievements](https://david-dhc.github.io/World-of-Warcraft/Achievements)
+
+-   [Commander of Argus](https://david-dhc.github.io/World-of-Warcraft/Achievements/CommanderofArgus.html)
 
 ## [Mounts](https://david-dhc.github.io/World-of-Warcraft/Mounts)
 
 -   [Corrupted Dreadwing](https://david-dhc.github.io/World-of-Warcraft/Mounts/CorruptedDreadwing.html)
+-   [Crimson Tidestallion](https://david-dhc.github.io/World-of-Warcraft/Mounts/CrimsonTidestallion.html)
+-   [Deepstar Aurelid](https://david-dhc.github.io/World-of-Warcraft/Mounts/DeepstarAurelid.html)
 
 ## [Reputation](https://david-dhc.github.io/World-of-Warcraft/Reputation/)
 
@@ -28,7 +34,7 @@
 
 -   [Argent Tournament](https://david-dhc.github.io/World-of-Warcraft/Events/ArgentTournament.html)
 
--   [Argus Rare Elite](https://david-dhc.github.io/World-of-Warcraft/Events/Argus.html)
+-   [Argus Rare Elites' Special Drop](https://david-dhc.github.io/World-of-Warcraft/Events/Argus.html)
 
 -   [Molten Front](https://david-dhc.github.io/World-of-Warcraft/Events/MoltenFront.html)
 
